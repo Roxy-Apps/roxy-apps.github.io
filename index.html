@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Roxy Apps - Mobile app and website development company specializing in AI integrations">
+    <title>Roxy Apps - Mobile & Web Development</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="resources/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="resources/icons/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="resources/icons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/icons/apple-touch-icon.png">
+    <link rel="manifest" href="resources/icons/site.webmanifest">
+    <meta name="theme-color" content="#8c32c8">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#home" class="logo-link">
+                    <img src="resources/icons/app-icon.png" alt="Roxy Apps" class="nav-logo">
+                    <h1 data-translate="nav.company">Roxy Apps</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" data-translate="nav.home">Home</a></li>
+                <li><a href="#services" data-translate="nav.services">Services</a></li>
+                <li><a href="#apps" data-translate="nav.apps">Our Apps</a></li>
+                <li><a href="#about" data-translate="nav.about">About</a></li>
+                <li><a href="#contact" data-translate="nav.contact">Contact</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-btn" id="langBtn" aria-label="Change language">
+                        <span id="currentLang">EN</span>
+                    </button>
+                </li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="hero.title">Building the Future of Mobile & Web Experiences</h1>
+                <p class="hero-subtitle" data-translate="hero.subtitle">We create innovative mobile apps and websites with cutting-edge AI integrations</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary" data-translate="hero.contactBtn">Get in Touch</a>
+                    <a href="#apps" class="btn btn-secondary" data-translate="hero.viewApps">View Our Apps</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1"></div>
+                <div class="floating-card card-2"></div>
+                <div class="floating-card card-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-translate="services.title">Our Services</h2>
+            <p class="section-subtitle" data-translate="services.subtitle">We offer comprehensive development solutions tailored to your needs</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3 data-translate="services.mobile.title">Mobile App Development</h3>
+                    <p data-translate="services.mobile.description">Native iOS and Android applications built with modern frameworks and best practices</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 data-translate="services.web.title">Website Development</h3>
+                    <p data-translate="services.web.description">Responsive, modern websites that deliver exceptional user experiences</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3 data-translate="services.ai.title">AI Integrations</h3>
+                    <p data-translate="services.ai.description">Intelligent features powered by artificial intelligence to enhance your applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section class="apps" id="apps">
+        <div class="container">
+            <h2 class="section-title" data-translate="apps.title">Our Apps</h2>
+            <p class="section-subtitle" data-translate="apps.subtitle">Discover the innovative applications we've built</p>
+            
+            <div class="apps-grid">
+                <div class="app-card featured">
+                    <div class="app-header">
+                        <div class="app-icon-wrapper">
+                            <img src="resources/dreamviewer/icon.svg" alt="DreamViewer AI" class="app-icon">
+                        </div>
+                        <div class="app-header-text">
+                            <h3>DreamViewer AI</h3>
+                            <div class="app-tags">
+                                <span class="tag">iOS</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-screenshots">
+                        <img src="" alt="DreamViewer AI Screenshot 1" class="app-screenshot" id="screenshot1" data-screenshot="1">
+                        <img src="" alt="DreamViewer AI Screenshot 2" class="app-screenshot" id="screenshot2" data-screenshot="2">
+                        <img src="" alt="DreamViewer AI Screenshot 3" class="app-screenshot" id="screenshot3" data-screenshot="3">
+                    </div>
+                    <div class="app-content">
+                        <p data-translate="apps.dreamviewer.description">Your personal dream interpreter powered by artificial intelligence. Analyze and visualize your dreams with cutting-edge AI technology.</p>
+                        <div class="app-download">
+                            <a href="https://apps.apple.com/app/id6754784881" class="app-store-link" id="appStoreLink" target="_blank" rel="noopener noreferrer">
+                                <img src="resources/en/appstore.svg" alt="Download on the App Store" class="app-store-badge" id="appStoreBadge">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="app-card coming-soon">
+                    <div class="app-header">
+                        <div class="app-icon-wrapper">
+                            <div class="app-icon-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="app-header-text">
+                            <h3 data-translate="apps.comingSoon.title">More Apps Coming Soon</h3>
+                            <div class="app-tags">
+                                <span class="tag" data-translate="apps.comingSoon.tag">Coming Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-content">
+                        <p data-translate="apps.comingSoon.description">We're constantly working on new innovative applications. Stay tuned for exciting updates!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title" data-translate="about.title">About Roxy Apps</h2>
+                    <p data-translate="about.description1">We are a passionate team of developers dedicated to creating exceptional mobile and web experiences. Our expertise lies in building modern applications that seamlessly integrate artificial intelligence to deliver innovative solutions.</p>
+                    <p data-translate="about.description2">With a focus on quality, performance, and user experience, we transform ideas into reality. Whether it's a mobile app or a website, we ensure every project meets the highest standards of excellence.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <div class="stat-number">2+</div>
+                            <div class="stat-label" data-translate="about.stats.years">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label" data-translate="about.stats.projects">Projects</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label" data-translate="about.stats.satisfaction">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact.title">Get in Touch</h2>
+            <p class="section-subtitle" data-translate="contact.subtitle">Have a project in mind? Let's discuss how we can help bring your vision to life.</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 data-translate="contact.email.label">Email</h3>
+                            <a href="mailto:admin@roxyapps.net">admin@roxyapps.net</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 data-translate="contact.address.label">Address</h3>
+                            <p>131 Continental Dr, Suite 305<br>Newark, DE 19713<br>United States</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 data-translate="contact.social.label">Follow Us</h3>
+                            <a href="https://instagram.com/roxyapps.ai" target="_blank" rel="noopener noreferrer">@roxyapps.ai</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Roxy Apps</h3>
+                    <p data-translate="footer.tagline">Building the future of mobile & web experiences</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-translate="footer.links.title">Links</h4>
+                    <ul>
+                        <li><a href="content/en/privacy-policy.html" data-translate="footer.links.privacy">Privacy Policy</a></li>
+                        <li><a href="content/en/terms-of-service.html" data-translate="footer.links.terms">Terms of Service</a></li>
+                        <li><a href="content/en/kvkk.html" data-translate="footer.links.kvkk">KVKK</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4 data-translate="footer.social.title">Connect</h4>
+                    <a href="https://instagram.com/roxyapps.ai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <img src="resources/instagram.svg" alt="Instagram" class="social-icon">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Roxy Apps, LLC. <span data-translate="footer.rights">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

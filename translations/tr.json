@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Roxy Apps - Mobil & Web Geliştirme"
+  },
+  "nav": {
+    "company": "Roxy Apps",
+    "home": "Ana Sayfa",
+    "services": "Hizmetler",
+    "apps": "Uygulamalarımız",
+    "about": "Hakkımızda",
+    "contact": "İletişim"
+  },
+  "hero": {
+    "title": "Mobil ve Web Deneyimlerinin Geleceğini İnşa Ediyoruz",
+    "subtitle": "Yapay zeka entegrasyonları ile yenilikçi mobil uygulamalar ve web siteleri oluşturuyoruz",
+    "contactBtn": "İletişime Geçin",
+    "viewApps": "Uygulamalarımızı Görün"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "İhtiyaçlarınıza özel kapsamlı geliştirme çözümleri sunuyoruz",
+    "mobile": {
+      "title": "Mobil Uygulama Geliştirme",
+      "description": "Modern framework'ler ve en iyi uygulamalarla geliştirilmiş native iOS ve Android uygulamaları"
+    },
+    "web": {
+      "title": "Web Sitesi Geliştirme",
+      "description": "Olağanüstü kullanıcı deneyimleri sunan duyarlı, modern web siteleri"
+    },
+    "ai": {
+      "title": "Yapay Zeka Entegrasyonları",
+      "description": "Uygulamalarınızı geliştirmek için yapay zeka ile desteklenen akıllı özellikler"
+    }
+  },
+  "apps": {
+    "title": "Uygulamalarımız",
+    "subtitle": "Geliştirdiğimiz yenilikçi uygulamaları keşfedin",
+    "screenshot": "Ekran Görüntüsü",
+    "dreamviewer": {
+      "description": "Yapay zeka ile desteklenen kişisel rüya yorumlayıcınız. Rüyalarınızı en son teknoloji AI ile analiz edin ve görselleştirin."
+    },
+    "comingSoon": {
+      "title": "Daha Fazla Uygulama Yakında",
+      "description": "Sürekli olarak yeni yenilikçi uygulamalar üzerinde çalışıyoruz. Heyecan verici güncellemeler için bizi takip edin!",
+      "tag": "Yakında"
+    }
+  },
+  "about": {
+    "title": "Roxy Apps Hakkında",
+    "description1": "Olağanüstü mobil ve web deneyimleri yaratmaya adanmış tutkulu bir geliştirici ekibiyiz. Uzmanlığımız, yenilikçi çözümler sunmak için yapay zekayı sorunsuz bir şekilde entegre eden modern uygulamalar geliştirmektedir.",
+    "description2": "Kalite, performans ve kullanıcı deneyimine odaklanarak, fikirleri gerçeğe dönüştürüyoruz. İster mobil uygulama ister web sitesi olsun, her projenin en yüksek mükemmellik standartlarını karşılamasını sağlıyoruz.",
+    "stats": {
+      "years": "Yıl Deneyim",
+      "projects": "Proje",
+      "satisfaction": "Memnuniyet"
+    }
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "Aklınızda bir proje mi var? Vizyonunuzu hayata geçirmenize nasıl yardımcı olabileceğimizi tartışalım.",
+    "email": {
+      "label": "E-posta"
+    },
+    "address": {
+      "label": "Adres"
+    },
+    "social": {
+      "label": "Bizi Takip Edin"
+    }
+  },
+  "footer": {
+    "tagline": "Mobil ve web deneyimlerinin geleceğini inşa ediyoruz",
+    "links": {
+      "title": "Bağlantılar",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Hizmet Şartları",
+      "kvkk": "KVKK"
+    },
+    "social": {
+      "title": "Bağlan"
+    },
+    "rights": "Tüm hakları saklıdır."
+  }
+}

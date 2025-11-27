@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Roxy Apps - Mobile & Web Development"
+  },
+  "nav": {
+    "company": "Roxy Apps",
+    "home": "Home",
+    "services": "Services",
+    "apps": "Our Apps",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Building the Future of Mobile & Web Experiences",
+    "subtitle": "We create innovative mobile apps and websites with cutting-edge AI integrations",
+    "contactBtn": "Get in Touch",
+    "viewApps": "View Our Apps"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer comprehensive development solutions tailored to your needs",
+    "mobile": {
+      "title": "Mobile App Development",
+      "description": "Native iOS and Android applications built with modern frameworks and best practices"
+    },
+    "web": {
+      "title": "Website Development",
+      "description": "Responsive, modern websites that deliver exceptional user experiences"
+    },
+    "ai": {
+      "title": "AI Integrations",
+      "description": "Intelligent features powered by artificial intelligence to enhance your applications"
+    }
+  },
+  "apps": {
+    "title": "Our Apps",
+    "subtitle": "Discover the innovative applications we've built",
+    "screenshot": "Screenshot",
+    "dreamviewer": {
+      "description": "Your personal dream interpreter powered by artificial intelligence. Analyze and visualize your dreams with cutting-edge AI technology."
+    },
+    "comingSoon": {
+      "title": "More Apps Coming Soon",
+      "description": "We're constantly working on new innovative applications. Stay tuned for exciting updates!",
+      "tag": "Coming Soon"
+    }
+  },
+  "about": {
+    "title": "About Roxy Apps",
+    "description1": "We are a passionate team of developers dedicated to creating exceptional mobile and web experiences. Our expertise lies in building modern applications that seamlessly integrate artificial intelligence to deliver innovative solutions.",
+    "description2": "With a focus on quality, performance, and user experience, we transform ideas into reality. Whether it's a mobile app or a website, we ensure every project meets the highest standards of excellence.",
+    "stats": {
+      "years": "Years Experience",
+      "projects": "Projects",
+      "satisfaction": "Satisfaction"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have a project in mind? Let's discuss how we can help bring your vision to life.",
+    "email": {
+      "label": "Email"
+    },
+    "address": {
+      "label": "Address"
+    },
+    "social": {
+      "label": "Follow Us"
+    }
+  },
+  "footer": {
+    "tagline": "Building the future of mobile & web experiences",
+    "links": {
+      "title": "Links",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "kvkk": "KVKK"
+    },
+    "social": {
+      "title": "Connect"
+    },
+    "rights": "All rights reserved."
+  }
+}
