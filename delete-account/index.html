@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Roxy Apps</title>
+    <link rel="icon" type="image/x-icon" href="/resources/icons/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/" style="text-decoration: none; color: inherit;"><h1>Roxy Apps</h1></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="legal-page">
+        <div class="legal-content">
+            <p id="langs"></p>
+            <div id="content"><p>Loading…</p></div>
+            <button class="btn btn-secondary" id="signin" hidden></button>
+            <div id="confirm" hidden>
+                <p id="who"></p>
+                <button class="btn btn-primary" id="delete"></button>
+                <button class="btn btn-secondary" id="cancel"></button>
+            </div>
+            <p id="status" role="status"></p>
+            <p id="fallback" class="muted" hidden></p>
+        </div>
+    </section>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+        import { getFirestore, doc, collection, query, where, getDocs, deleteDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+
+        const $ = id => document.getElementById(id);
+        const params = new URLSearchParams(location.search);
+        const appId = params.get('app');
+        const lang = (params.get('lang') || navigator.language).startsWith('tr') ? 'tr' : 'en';
+        const contact = '<a href="mailto:admin@roxyapps.net">admin@roxyapps.net</a>';
+
+        // App names come from apps.json (ours), so building HTML strings is safe.
+        const T = {
+            en: {
+                choose: 'Delete Account',
+                title: name => `Delete your ${name} account`,
+                intro: name => `<p>Here you can permanently delete your ${name} account and <strong>all data stored with it</strong>: your profile, progress and saved content. This cannot be undone.</p>
+                    <p>Deleting your account does not cancel subscriptions. Cancel them first in Google Play (Payments &amp; subscriptions) or the App Store.</p>
+                    <p>Sign in with the Google account you use in ${name} to continue.</p>`,
+                signin: 'Sign in with Google',
+                who: email => `Signed in as ${email}. Delete this account and all its data?`,
+                delete: 'Permanently delete my account',
+                cancel: 'Cancel',
+                deleting: 'Deleting…',
+                done: name => `Your ${name} account and all its data have been deleted.`,
+                error: code => `Something went wrong (${code}). Try again, or use the email option below.`,
+                fallback: name => `Can't sign in? Email ${contact} from your account's email address with the subject "Delete my ${name} account". We delete the account and its data within 30 days.`
+            },
+            tr: {
+                choose: 'Hesap Silme',
+                title: name => `${name} hesabınızı silin`,
+                intro: name => `<p>Bu sayfadan ${name} hesabınızı ve <strong>hesabınızla saklanan tüm verileri</strong> (profiliniz, ilerlemeniz ve kayıtlı içerikleriniz) kalıcı olarak silebilirsiniz. Bu işlem geri alınamaz.</p>
+                    <p>Hesabınızı silmek aboneliklerinizi iptal etmez. Önce Google Play'de (Ödemeler ve abonelikler) veya App Store'da iptal edin.</p>
+                    <p>Devam etmek için ${name} uygulamasında kullandığınız Google hesabıyla giriş yapın.</p>`,
+                signin: 'Google ile giriş yap',
+                who: email => `${email} olarak giriş yapıldı. Bu hesap ve tüm verileri silinsin mi?`,
+                delete: 'Hesabımı kalıcı olarak sil',
+                cancel: 'Vazgeç',
+                deleting: 'Siliniyor…',
+                done: name => `${name} hesabınız ve tüm verileriniz silindi.`,
+                error: code => `Bir hata oluştu (${code}). Tekrar deneyin veya aşağıdaki e-posta seçeneğini kullanın.`,
+                fallback: name => `Giriş yapamıyor musunuz? Hesabınızın e-posta adresinden ${contact} adresine "Delete my ${name} account" konulu bir e-posta gönderin. Hesabınızı ve verilerinizi 30 gün içinde sileriz.`
+            }
+        }[lang];
+
+        document.documentElement.lang = lang;
+        $('langs').innerHTML = ['en', 'tr'].map(l => `<a href="?app=${encodeURIComponent(appId || '')}&lang=${l}">${l.toUpperCase()}</a>`).join(' | ');
+
+        const apps = await fetch('/apps.json').then(r => r.json()).catch(() => ({}));
+        const app = apps[appId];
+
+        if (!app) {
+            $('content').innerHTML = `<h1>${T.choose}</h1><ul>` +
+                Object.entries(apps).map(([id, a]) => `<li><a href="/delete-account/?app=${id}&lang=${lang}">${a.name}</a></li>`).join('') + '</ul>';
+        } else {
+            document.title = T.title(app.name);
+            $('content').innerHTML = `<h1>${T.title(app.name)}</h1>${T.intro(app.name)}`;
+            $('fallback').innerHTML = T.fallback(app.name);
+            $('fallback').hidden = false;
+            $('signin').textContent = T.signin;
+            $('delete').textContent = T.delete;
+            $('cancel').textContent = T.cancel;
+            $('signin').hidden = false;
+
+            const fb = initializeApp(app.firebase);
+            const auth = getAuth(fb);
+            const status = (msg, isError) => { $('status').textContent = msg; $('status').className = isError ? 'error' : ''; };
+
+            $('signin').onclick = async () => {
+                try {
+                    const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
+                    $('who').textContent = T.who(user.email);
+                    $('signin').hidden = true;
+                    $('confirm').hidden = false;
+                    status('');
+                } catch (e) {
+                    status(T.error(e.code || e.message), true);
+                }
+            };
+
+            $('cancel').onclick = async () => {
+                await signOut(auth);
+                $('confirm').hidden = true;
+                $('signin').hidden = false;
+            };
+
+            $('delete').onclick = async () => {
+                const user = auth.currentUser;
+                const path = p => p.replaceAll('{uid}', user.uid);
+                const del = app.delete;
+                $('delete').disabled = $('cancel').disabled = true;
+                status(T.deleting);
+                try {
+                    // Data first: once the auth user is gone, security rules no longer let us touch it.
+                    // ponytail: client-side deletes, one request per doc; fine for per-user data, move to a Cloud Function if a user can own thousands of docs.
+                    const db = getFirestore(fb);
+                    const deleteAll = async q => Promise.all((await getDocs(q)).docs.map(d => deleteDoc(d.ref)));
+                    for (const c of del.collections || []) await deleteAll(collection(db, path(c)));
+                    for (const q of del.queries || []) await deleteAll(query(collection(db, q.collection), where(q.field, '==', user.uid)));
+                    for (const d of del.docs || []) await deleteDoc(doc(db, path(d)));
+                    await user.delete();
+                    $('confirm').hidden = true;
+                    status(T.done(app.name));
+                } catch (e) {
+                    $('delete').disabled = $('cancel').disabled = false;
+                    status(T.error(e.code || e.message), true);
+                }
+            };
+        }
+    </script>
+</body>
+</html>

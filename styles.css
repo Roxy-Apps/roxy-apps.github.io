@@ -797,3 +797,15 @@ section {
     }
 }
 
+
+/* App legal pages (/privacy, /delete-account) */
+.legal-page { padding: 120px 0 4rem; }
+.legal-content { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+.legal-content h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+.legal-content h2 { font-size: 1.5rem; font-weight: 600; margin: 2.5rem 0 1rem; }
+.legal-content p, .legal-content ul { margin-bottom: 1rem; line-height: 1.8; color: var(--text-secondary); }
+.legal-content ul { padding-left: 2rem; }
+.legal-content a { color: var(--accent-color); }
+.legal-content .muted { font-style: italic; }
+.legal-content .btn { margin: 0 0.5rem 0.75rem 0; cursor: pointer; }
+.legal-content .error { color: #c62828; }

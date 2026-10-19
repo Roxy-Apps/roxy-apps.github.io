@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Roxy Apps</title>
+    <link rel="icon" type="image/x-icon" href="/resources/icons/favicon.ico">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="/" style="text-decoration: none; color: inherit;"><h1>Roxy Apps</h1></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="legal-page">
+        <div class="legal-content">
+            <p id="langs"></p>
+            <div id="content"><p>Loading…</p></div>
+        </div>
+    </section>
+
+    <script>
+        const params = new URLSearchParams(location.search);
+        const appId = params.get('app');
+        const lang = (params.get('lang') || navigator.language).startsWith('tr') ? 'tr' : 'en';
+        const contact = '<a href="mailto:admin@roxyapps.net">admin@roxyapps.net</a>';
+
+        // One policy shared by every app. `has(x)` is true when the app's apps.json "features" include x.
+        // Content comes only from this file and apps.json (both ours), so building HTML strings is safe.
+        const POLICY = {
+            en: (name, date, has, deleteUrl) => `
+                <h1>${name} Privacy Policy</h1>
+                <p class="muted">Last updated: ${date}</p>
+                <p>This Privacy Policy explains how Ulaş Sancak, publishing as Roxy Apps ("we", "us"), collects, uses and protects your information when you use ${name} (the "App"). We are the data controller for the personal data described here.</p>
+
+                <h2>1. Information We Collect</h2>
+                <ul>
+                    <li><strong>Account information:</strong> when you sign in (for example with Google or Apple), we receive your name, email address, profile photo and a unique user ID.</li>
+                    <li><strong>App content:</strong> the data you create or save in the App, such as progress, settings and content, stored with your account.</li>
+                    ${has('purchases') ? '<li><strong>Purchase information:</strong> purchase history and subscription status. Payments are handled by the App Store or Google Play; we never see your card details.</li>' : ''}
+                    ${has('analytics') ? '<li><strong>Usage data:</strong> how you use the App, device model, operating system, app version and app instance ID.</li>' : ''}
+                    ${has('crashlytics') ? '<li><strong>Crash reports:</strong> crash logs, device model, operating system and app version.</li>' : ''}
+                    ${has('ads') ? '<li><strong>Advertising data:</strong> your device advertising ID (IDFA/AAID), IP address and device information, used to show ads.</li>' : ''}
+                </ul>
+
+                <h2>2. How We Use Information</h2>
+                <ul>
+                    <li>To provide the App, create your account and keep your data synced across devices</li>
+                    ${has('purchases') ? '<li>To process purchases and unlock paid features</li>' : ''}
+                    ${has('analytics') ? '<li>To understand how the App is used and improve it</li>' : ''}
+                    ${has('crashlytics') ? '<li>To find and fix crashes</li>' : ''}
+                    ${has('ads') ? '<li>To show ads, including personalized ads where you have consented</li>' : ''}
+                    <li>To respond to your support requests and comply with legal obligations</li>
+                </ul>
+                <p>We do not sell your personal data.</p>
+
+                <h2>3. Third-Party Services</h2>
+                <p>The App uses the following services, which process data under their own privacy policies:</p>
+                <ul>
+                    <li><a href="https://firebase.google.com/support/privacy">Google Firebase (Authentication, Cloud Firestore${has('analytics') ? ', Analytics' : ''}${has('crashlytics') ? ', Crashlytics' : ''})</a>: accounts, cloud save${has('analytics') ? ', analytics' : ''}${has('crashlytics') ? ', crash reports' : ''}</li>
+                    ${has('ads') ? '<li><a href="https://policies.google.com/technologies/ads">Google AdMob + User Messaging Platform</a>: ads and the ad consent form</li>' : ''}
+                    ${has('purchases') ? '<li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>: checking purchases</li>' : ''}
+                    <li><a href="https://www.apple.com/legal/privacy/">Apple (${has('purchases') ? 'App Store, ' : ''}Sign in with Apple)</a>: iOS ${has('purchases') ? 'purchases and ' : ''}sign-in</li>
+                    <li><a href="https://policies.google.com/privacy">Google Play (${has('purchases') ? 'purchases, ' : ''}Google sign-in)</a>: Android ${has('purchases') ? 'purchases and ' : ''}sign-in</li>
+                </ul>
+                ${has('ads') ? '<p>Where required (for example in the EEA and UK), we ask for your consent before showing personalized ads. You can reset your advertising ID or opt out of personalized ads in your device settings at any time.</p>' : ''}
+
+                <h2>4. Data Retention and Account Deletion</h2>
+                <p>We keep your data while your account exists. You can delete your account at any time in the App or on the web at <a href="${deleteUrl}">${deleteUrl}</a>. Deleting your account permanently deletes your account and all data stored with it.</p>
+                <p>Some data is kept after deletion only where necessary: purchase records kept by Apple, Google${has('purchases') ? ' and RevenueCat' : ''} for legal and tax reasons${has('analytics') || has('crashlytics') ? ', and analytics or crash data that are not linked to your account, kept under Google\'s retention periods' : ''}.</p>
+
+                <h2>5. Security</h2>
+                <p>Your data is transmitted over encrypted connections and stored with Google Firebase. No method of transmission or storage is completely secure, but we take reasonable measures to protect your data.</p>
+
+                <h2>6. Children</h2>
+                <p>The App is not directed to children under 13, and we do not knowingly collect personal data from them. If you believe a child has given us personal data, contact us and we will delete it.</p>
+
+                <h2>7. International Transfers</h2>
+                <p>Our service providers may process your data on servers outside your country, including in the United States and the European Union.</p>
+
+                <h2>8. Your Rights</h2>
+                <p>Depending on where you live (for example under the GDPR, the Turkish Personal Data Protection Law No. 6698 (KVKK) or the CCPA), you may have the right to access, correct, delete or export your personal data, to object to or restrict processing, and to withdraw consent. To use these rights, email ${contact}.</p>
+
+                <h2>9. Changes</h2>
+                <p>We may update this policy. Changes are posted on this page with a new "Last updated" date.</p>
+
+                <h2>10. Contact</h2>
+                <p>Ulaş Sancak (Roxy Apps)<br>Bakırköy, İstanbul, Türkiye<br>Email: ${contact}</p>`,
+
+            tr: (name, date, has, deleteUrl) => `
+                <h1>${name} Gizlilik Politikası</h1>
+                <p class="muted">Son güncelleme: ${date}</p>
+                <p>Bu Gizlilik Politikası, Roxy Apps adıyla yayın yapan Ulaş Sancak'ın ("biz") ${name} uygulamasını ("Uygulama") kullandığınızda bilgilerinizi nasıl topladığını, kullandığını ve koruduğunu açıklar. Burada açıklanan kişisel veriler için veri sorumlusu biziz.</p>
+
+                <h2>1. Topladığımız Bilgiler</h2>
+                <ul>
+                    <li><strong>Hesap bilgileri:</strong> giriş yaptığınızda (örneğin Google veya Apple ile) adınız, e-posta adresiniz, profil fotoğrafınız ve benzersiz bir kullanıcı kimliği.</li>
+                    <li><strong>Uygulama içeriği:</strong> Uygulama'da oluşturduğunuz veya kaydettiğiniz ilerleme, ayarlar ve içerik gibi, hesabınızla saklanan veriler.</li>
+                    ${has('purchases') ? '<li><strong>Satın alma bilgileri:</strong> satın alma geçmişi ve abonelik durumu. Ödemeler App Store veya Google Play tarafından işlenir; kart bilgilerinizi hiçbir zaman görmeyiz.</li>' : ''}
+                    ${has('analytics') ? '<li><strong>Kullanım verileri:</strong> Uygulama\'yı nasıl kullandığınız, cihaz modeli, işletim sistemi, uygulama sürümü ve uygulama örneği kimliği.</li>' : ''}
+                    ${has('crashlytics') ? '<li><strong>Çökme raporları:</strong> çökme kayıtları, cihaz modeli, işletim sistemi ve uygulama sürümü.</li>' : ''}
+                    ${has('ads') ? '<li><strong>Reklam verileri:</strong> reklam göstermek için kullanılan cihaz reklam kimliğiniz (IDFA/AAID), IP adresiniz ve cihaz bilgileriniz.</li>' : ''}
+                </ul>
+
+                <h2>2. Bilgileri Nasıl Kullanıyoruz</h2>
+                <ul>
+                    <li>Uygulama'yı sunmak, hesabınızı oluşturmak ve verilerinizi cihazlarınız arasında senkronize etmek</li>
+                    ${has('purchases') ? '<li>Satın almaları işlemek ve ücretli özellikleri açmak</li>' : ''}
+                    ${has('analytics') ? '<li>Uygulama\'nın nasıl kullanıldığını anlamak ve geliştirmek</li>' : ''}
+                    ${has('crashlytics') ? '<li>Çökmeleri bulmak ve gidermek</li>' : ''}
+                    ${has('ads') ? '<li>Reklam göstermek; onay verdiyseniz kişiselleştirilmiş reklamlar dahil</li>' : ''}
+                    <li>Destek taleplerinize yanıt vermek ve yasal yükümlülüklerimizi yerine getirmek</li>
+                </ul>
+                <p>Kişisel verilerinizi satmayız.</p>
+
+                <h2>3. Üçüncü Taraf Hizmetler</h2>
+                <p>Uygulama, verileri kendi gizlilik politikalarına göre işleyen aşağıdaki hizmetleri kullanır:</p>
+                <ul>
+                    <li><a href="https://firebase.google.com/support/privacy">Google Firebase (Authentication, Cloud Firestore${has('analytics') ? ', Analytics' : ''}${has('crashlytics') ? ', Crashlytics' : ''})</a>: hesaplar, bulut kayıt${has('analytics') ? ', analitik' : ''}${has('crashlytics') ? ', çökme raporları' : ''}</li>
+                    ${has('ads') ? '<li><a href="https://policies.google.com/technologies/ads">Google AdMob + User Messaging Platform</a>: reklamlar ve reklam onay formu</li>' : ''}
+                    ${has('purchases') ? '<li><a href="https://www.revenuecat.com/privacy">RevenueCat</a>: satın almaları doğrulama</li>' : ''}
+                    <li><a href="https://www.apple.com/legal/privacy/">Apple (${has('purchases') ? 'App Store, ' : ''}Sign in with Apple)</a>: iOS ${has('purchases') ? 'satın almaları ve ' : ''}giriş</li>
+                    <li><a href="https://policies.google.com/privacy">Google Play (${has('purchases') ? 'satın almalar, ' : ''}Google ile giriş)</a>: Android ${has('purchases') ? 'satın almaları ve ' : ''}giriş</li>
+                </ul>
+                ${has('ads') ? '<p>Gerekli olduğu yerlerde (örneğin AEA ve Birleşik Krallık\'ta) kişiselleştirilmiş reklam göstermeden önce onayınızı isteriz. Reklam kimliğinizi sıfırlayabilir veya kişiselleştirilmiş reklamları cihaz ayarlarınızdan istediğiniz zaman kapatabilirsiniz.</p>' : ''}
+
+                <h2>4. Saklama Süresi ve Hesap Silme</h2>
+                <p>Verilerinizi hesabınız var olduğu sürece saklarız. Hesabınızı istediğiniz zaman Uygulama içinden veya web üzerinden <a href="${deleteUrl}">${deleteUrl}</a> adresinden silebilirsiniz. Hesabınızı sildiğinizde hesabınız ve hesabınızla saklanan tüm veriler kalıcı olarak silinir.</p>
+                <p>Silme işleminden sonra yalnızca zorunlu veriler saklanır: Apple, Google${has('purchases') ? ' ve RevenueCat' : ''} tarafından yasal ve vergisel nedenlerle tutulan satın alma kayıtları${has('analytics') || has('crashlytics') ? ' ile hesabınızla ilişkilendirilmemiş analitik veya çökme verileri (Google\'ın saklama sürelerine göre)' : ''}.</p>
+
+                <h2>5. Güvenlik</h2>
+                <p>Verileriniz şifreli bağlantılar üzerinden iletilir ve Google Firebase'de saklanır. Hiçbir iletim veya saklama yöntemi tamamen güvenli değildir, ancak verilerinizi korumak için makul önlemler alırız.</p>
+
+                <h2>6. Çocuklar</h2>
+                <p>Uygulama 13 yaşından küçük çocuklara yönelik değildir ve bu çocuklardan bilerek kişisel veri toplamayız. Bir çocuğun bize kişisel veri verdiğini düşünüyorsanız bizimle iletişime geçin; bu verileri sileriz.</p>
+
+                <h2>7. Yurt Dışına Aktarım</h2>
+                <p>Hizmet sağlayıcılarımız verilerinizi Amerika Birleşik Devletleri ve Avrupa Birliği dahil olmak üzere ülkeniz dışındaki sunucularda işleyebilir.</p>
+
+                <h2>8. Haklarınız</h2>
+                <p>6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) madde 11 ve bulunduğunuz yere göre GDPR veya CCPA kapsamında; kişisel verilerinizin işlenip işlenmediğini öğrenme, verilerinize erişme, düzeltilmesini, silinmesini veya aktarılmasını isteme, işlemeye itiraz etme ve onayınızı geri çekme haklarına sahipsiniz. Bu haklarınızı kullanmak için ${contact} adresine e-posta gönderin.</p>
+
+                <h2>9. Değişiklikler</h2>
+                <p>Bu politikayı güncelleyebiliriz. Değişiklikler bu sayfada yeni bir "Son güncelleme" tarihiyle yayımlanır.</p>
+
+                <h2>10. İletişim</h2>
+                <p>Ulaş Sancak (Roxy Apps)<br>Bakırköy, İstanbul, Türkiye<br>E-posta: ${contact}</p>`
+        };
+        const TITLE = { en: 'Privacy Policies', tr: 'Gizlilik Politikaları' };
+
+        document.documentElement.lang = lang;
+        document.getElementById('langs').innerHTML =
+            ['en', 'tr'].map(l => `<a href="?app=${encodeURIComponent(appId || '')}&lang=${l}">${l.toUpperCase()}</a>`).join(' | ');
+
+        fetch('/apps.json').then(r => r.json()).then(apps => {
+            const app = apps[appId];
+            const content = document.getElementById('content');
+
+            if (!app) {
+                content.innerHTML = `<h1>${TITLE[lang]}</h1><ul>` +
+                    Object.entries(apps).map(([id, a]) => `<li><a href="/privacy/?app=${id}&lang=${lang}">${a.name}</a></li>`).join('') + '</ul>';
+                return;
+            }
+
+            const date = new Date(app.updated + 'T12:00').toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { dateStyle: 'long' });
+            const has = feature => app.features.includes(feature);
+            const deleteUrl = `${location.origin}/delete-account/?app=${appId}&lang=${lang}`;
+            document.title = `${app.name} - ${lang === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy'}`;
+            content.innerHTML = POLICY[lang](app.name, date, has, deleteUrl);
+        }).catch(() => {
+            document.getElementById('content').innerHTML = `<p>Could not load the policy. Email ${contact}.</p>`;
+        });
+    </script>
+</body>
+</html>
