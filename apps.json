@@ -2,7 +2,12 @@
   "tilemio": {
     "name": "Tilemio",
     "updated": "2026-10-19",
-    "features": ["analytics", "crashlytics", "ads", "purchases"],
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
     "firebase": {
       "apiKey": "AIzaSyAlkHwobw0IPZGIhwjWspwZHIsFaENdCR4",
       "authDomain": "tilemio.firebaseapp.com",
@@ -13,7 +18,104 @@
       "measurementId": "G-FZ2Y07E5TY"
     },
     "delete": {
-      "docs": ["users/{uid}"]
+      "docs": [
+        "users/{uid}"
+      ]
+    }
+  },
+  "tintstack": {
+    "name": "Tintstack",
+    "updated": "2026-10-19",
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
+    "firebase": {
+      "apiKey": "AIzaSyBwkoNjrQcKYAeXSc6zKY6U1JAHzUMmifA",
+      "authDomain": "tintstack-roxyapps.firebaseapp.com",
+      "projectId": "tintstack-roxyapps",
+      "storageBucket": "tintstack-roxyapps.firebasestorage.app",
+      "messagingSenderId": "436222870188",
+      "appId": "1:436222870188:web:c1a417545b6a48517e1509"
+    },
+    "delete": {
+      "docs": [
+        "users/{uid}"
+      ]
+    }
+  },
+  "tilequake": {
+    "name": "Tilequake",
+    "updated": "2026-10-19",
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
+    "firebase": {
+      "apiKey": "AIzaSyBWOhtlU33b2J4JjoE8bpEPZJkCWyxQx_I",
+      "authDomain": "tilequake-29ddb.firebaseapp.com",
+      "projectId": "tilequake-29ddb",
+      "storageBucket": "tilequake-29ddb.firebasestorage.app",
+      "messagingSenderId": "563969050226",
+      "appId": "1:563969050226:web:6541d847e4495714c8a4eb",
+      "measurementId": "G-8FNL4LKT8J"
+    },
+    "delete": {
+      "docs": [
+        "users/{uid}"
+      ]
+    }
+  },
+  "pearlvortex": {
+    "name": "Pearl Vortex",
+    "updated": "2026-10-19",
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
+    "firebase": {
+      "apiKey": "AIzaSyBqWy0T7Fj5OlDfp21VwaRfmIfS_RUf0U0",
+      "authDomain": "pearlvortex-4e520.firebaseapp.com",
+      "projectId": "pearlvortex-4e520",
+      "storageBucket": "pearlvortex-4e520.firebasestorage.app",
+      "messagingSenderId": "512661185146",
+      "appId": "1:512661185146:web:96790df1fd0ecece64d1c3",
+      "measurementId": "G-PXVCT2MLWX"
+    },
+    "delete": {
+      "docs": [
+        "users/{uid}"
+      ]
+    }
+  },
+  "lettermint": {
+    "name": "Lettermint",
+    "updated": "2026-10-19",
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
+    "firebase": {
+      "apiKey": "AIzaSyCj9yMrfTgsvlvJl9t1j0kDeTkrM16kTHI",
+      "authDomain": "lettermint-3a3d2.firebaseapp.com",
+      "projectId": "lettermint-3a3d2",
+      "storageBucket": "lettermint-3a3d2.firebasestorage.app",
+      "messagingSenderId": "911375564670",
+      "appId": "1:911375564670:web:4b2dc5af9c627b49f0fd2f",
+      "measurementId": "G-8RLQXFVPPR"
+    },
+    "delete": {
+      "docs": [
+        "users/{uid}"
+      ]
     }
   }
 }
