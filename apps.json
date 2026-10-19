@@ -1,1 +1,19 @@
-{}
+{
+  "tilemio": {
+    "name": "Tilemio",
+    "updated": "2026-10-19",
+    "features": ["analytics", "crashlytics", "ads", "purchases"],
+    "firebase": {
+      "apiKey": "AIzaSyAlkHwobw0IPZGIhwjWspwZHIsFaENdCR4",
+      "authDomain": "tilemio.firebaseapp.com",
+      "projectId": "tilemio",
+      "storageBucket": "tilemio.firebasestorage.app",
+      "messagingSenderId": "839904644124",
+      "appId": "1:839904644124:web:2f7073932e4d9275bc23d9",
+      "measurementId": "G-FZ2Y07E5TY"
+    },
+    "delete": {
+      "docs": ["users/{uid}"]
+    }
+  }
+}
