@@ -117,5 +117,29 @@
         "users/{uid}"
       ]
     }
+  },
+  "toppleza": {
+    "name": "Toppleza",
+    "updated": "2026-10-24",
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
+    "firebase": {
+      "apiKey": "AIzaSyD_K_IZe88x0GOj7_QUHgY6ky3po8lMms8",
+      "authDomain": "toppleza.firebaseapp.com",
+      "projectId": "toppleza",
+      "storageBucket": "toppleza.firebasestorage.app",
+      "messagingSenderId": "788787064171",
+      "appId": "1:788787064171:web:b536f7b42decac9288b02e",
+      "measurementId": "G-03V40RTFZ6"
+    },
+    "delete": {
+      "docs": [
+        "users/{uid}"
+      ]
+    }
   }
 }
