@@ -141,5 +141,29 @@
         "users/{uid}"
       ]
     }
+  },
+  "pullstack": {
+    "name": "Pullstack",
+    "updated": "2026-10-29",
+    "features": [
+      "analytics",
+      "crashlytics",
+      "ads",
+      "purchases"
+    ],
+    "firebase": {
+      "apiKey": "AIzaSyC2UO0ngOu0K6mqx1QwwIfci2OxonbEymc",
+      "authDomain": "pullstack-f9b38.firebaseapp.com",
+      "projectId": "pullstack-f9b38",
+      "storageBucket": "pullstack-f9b38.firebasestorage.app",
+      "messagingSenderId": "868648576003",
+      "appId": "1:868648576003:web:2fce382e78860da82eda36",
+      "measurementId": "G-H1ZNRFXY3D"
+    },
+    "delete": {
+      "docs": [
+        "users/{uid}"
+      ]
+    }
   }
 }
